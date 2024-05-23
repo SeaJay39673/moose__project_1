@@ -15,6 +15,7 @@ else
 endif
 
 # framework
+MOOSE_DIR := ~/projects/moose
 FRAMEWORK_DIR      := $(MOOSE_DIR)/framework
 include $(FRAMEWORK_DIR)/build.mk
 include $(FRAMEWORK_DIR)/moose.mk
@@ -34,7 +35,7 @@ FLUID_PROPERTIES            := no
 FSI                         := no
 FUNCTIONAL_EXPANSION_TOOLS  := no
 GEOCHEMISTRY                := no
-HEAT_TRANSFER               := no
+HEAT_TRANSFER               := yes
 LEVEL_SET                   := no
 MISC                        := no
 NAVIER_STOKES               := no
