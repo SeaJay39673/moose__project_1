@@ -15,7 +15,6 @@ else
 endif
 
 # framework
-MOOSE_DIR := ~/projects/moose
 FRAMEWORK_DIR      := $(MOOSE_DIR)/framework
 include $(FRAMEWORK_DIR)/build.mk
 include $(FRAMEWORK_DIR)/moose.mk
