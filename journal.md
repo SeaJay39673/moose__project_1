@@ -24,15 +24,18 @@ Possible causes:
 Solution:
 For some reason, Paraview does not render the GeneratedMesh specified in the input file. Instead, Peacock seems to work just fine.
 
-## Notes:
+#### [5/27/2024 - 4:32 PM]
+Trying to use ICs with SmoothCircleIC does not seem to work. 
+It throws the following error: "A 'SmoothCircleIC' is not a registered object."
 
-### Running in parallel:
-In order to run in parallel, use:
-```Bash
-mpiexec -n <threads> <path-to-opt> -i <path-to-input-file>
-```
+Using BoundingBoxIC does run correctly, but does not seem to work as intended when viewing in peacock.
 
-### Viewing Results in Peacock:
-```Bash
-~/projects/moose/python/peacock/peacock -r <path-to-output-file>
-```
+Resorting to using a bottom boundary condition for now. . .
+
+## Goal #2: Model diffusion of a material over time.
+### Project Statement:
+This goal will be to model the diffusion of heat from the bottom of the plate over a time step.
+
+This metal plate will be $10\times 10\times .25$ in inches.
+The center of the material will be heated to a point of 500 F.
+
