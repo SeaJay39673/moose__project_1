@@ -39,3 +39,5 @@ This goal will be to model the diffusion of heat from the bottom of the plate ov
 This metal plate will be $10\times 10\times .25$ in inches.
 The center of the material will be heated to a point of 500 F.
 
+[5/29/2024 - 11:41 AM]
+Using BoundingBoxIC about the center and a time step of 10 for a total time of 1000, this seemed to work no issues!
