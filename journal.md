@@ -41,3 +41,13 @@ The center of the material will be heated to a point of 500 F.
 
 [5/29/2024 - 11:41 AM]
 Using BoundingBoxIC about the center and a time step of 10 for a total time of 1000, this seemed to work no issues!
+
+## Goal #3: Model force of a material.
+### Project Statement:
+This goal is to model a force acting on the center of a metal disk.
+This disk will be .25 inches thick and have a radius of 5 inches.
+The force acting on the center will be 500 pounds.
+
+### Update:
+[5/31/2024 - 4:38 PM]
+Work in progress, Mesh might be too dense. Calculation took 1.5 hours and I had to terminate it.
