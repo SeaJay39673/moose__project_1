@@ -1,70 +1,58 @@
 
 [GlobalParams]
-    displacements = 'disp_x disp_y disp_z'
+  displacements = 'disp_x disp_y disp_z'
 []
-
-# [Mesh] # Eventually use this
-#     [2DCircle]
-#         type = ConcentricCircleMeshGenerator
-#         has_outer_square = false
-#         num_sectors = 10
-#         preserve_volumes = true
-#         radii = .127
-#         rings = 10
-#     []
-#     [Circle]
-#         type = MeshExtruderGenerator
-#         input = 2DCircle
-#         extrusion_vector = '0 0 0.00635'
-#     []
-# []
 
 [Mesh]
-  [generated]
-    type = GeneratedMeshGenerator
-    dim = 3
-    nx = 10
-    ny = 10
-    nz = 10
-    xmax = 2
-    ymax = 1
-    zmax = 1
+  [2DCircle]
+    type = ConcentricCircleMeshGenerator
+    has_outer_square = false
+    num_sectors = 4
+    preserve_volumes = true
+    radii = .127
+    rings = 3
+  []
+  [Circle]
+    type = MeshExtruderGenerator
+    input = 2DCircle
+    extrusion_vector = '0 0 0.00635'
   []
 []
 
-[Physics/SolidMechanics/QuasiStatic]
-  [all]
-    add_variables = true
+[Physics]
+
+  [SolidMechanics]
+
+    [QuasiStatic]
+      [all]
+        add_variables = true
+      []
+    []
   []
 []
-
-#
-# Added boundary/loading conditions
-# https://mooseframework.inl.gov/modules/solid_mechanics/tutorials/introduction/step02.html
-#
 
 [BCs]
   [bottom_x]
     type = DirichletBC
     variable = disp_x
-    boundary = bottom
+    boundary = outer
     value = 0
   []
   [bottom_y]
     type = DirichletBC
     variable = disp_y
-    boundary = bottom
+    boundary = outer
     value = 0
   []
   [bottom_z]
     type = DirichletBC
     variable = disp_z
-    boundary = bottom
+    boundary = outer
     value = 0
   []
   [Pressure]
-    [top]
-      boundary = top
+    [2]
+      boundary = 2
       function = 1e7*t
     []
   []
@@ -92,10 +80,10 @@
 [Executioner]
   type = Transient
   # we chose a direct solver here
-  petsc_options_iname = '-pc_type'
-  petsc_options_value = 'lu'
-  end_time = 50
-  dt = 1
+  # petsc_options_iname = '-pc_type'
+  # petsc_options_value = 'lu'
+  end_time = 3
+  dt = .25
 []
 
 [Outputs]

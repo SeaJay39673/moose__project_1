@@ -51,3 +51,7 @@ The force acting on the center will be 500 pounds.
 ### Update:
 [5/31/2024 - 4:38 PM]
 Work in progress, Mesh might be too dense. Calculation took 1.5 hours and I had to terminate it.
+
+[6/26/2024 - 3:28 PM]
+Using a mesh with 4 sectors and 3 rings seems to run fairly quickly. Anything more will run for an indeterminant amount of time.
+Compromised and used a function for Pressure initial condition instead of constant force.
